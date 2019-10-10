@@ -36,7 +36,7 @@ class ParseJsonNode extends LogicNode {
 			runOutput(1);
 		}	
 
-		//trace(searchterm);
+		trace(searchterm);
 	}
 
 	override function get(from:Int):Dynamic{
@@ -128,7 +128,7 @@ class ParseJsonNode extends LogicNode {
 				case ',' :
 				getvalue = false;
 				if(tempname != "" && tempvalue != ""){
-					//trace(tempkey + tempname + " => " + tempvalue);
+					trace(tempkey + tempname + " => " + tempvalue);
 					map.set(tempkey + tempname, tempvalue);
 				} 
 
@@ -141,7 +141,7 @@ class ParseJsonNode extends LogicNode {
 
 				case '}' :
 				if(tempname != "" && tempvalue != ""){
-					//trace(tempkey + tempname + " => " + tempvalue);
+					trace(tempkey + tempname + " => " + tempvalue);
 					map.set(tempkey + tempname, tempvalue);
 				} 
 
@@ -217,7 +217,7 @@ class ParseJsonNode extends LogicNode {
 
 				case ',' :
 				if(tempvalue != ""){
-					//trace(tempkey + "[" + iterator + "]" + " => " + tempvalue);
+					trace(tempkey + "[" + iterator + "]" + " => " + tempvalue);
 					map.set(tempkey + "[" + iterator + "]", tempvalue);
 					tempvalue = "";
 					iterator++;
@@ -228,7 +228,7 @@ class ParseJsonNode extends LogicNode {
 
 				case ']' :
 				if(tempvalue != ""){
-					//trace(tempkey + "[" + iterator + "]" + " => " + tempvalue);
+					trace(tempkey + "[" + iterator + "]" + " => " + tempvalue);
 					map.set(tempkey + "[" + iterator + "]", tempvalue);
 				}
 				
