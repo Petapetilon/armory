@@ -200,7 +200,8 @@ class ArmNodeAddInputOutputButton(bpy.types.Operator):
     out_socket_type: StringProperty(name='Out Socket Type', default='NodeSocketShader')
     in_name_format: StringProperty(name='In Name Format', default='Input {0}')
     out_name_format: StringProperty(name='Out Name Format', default='Output {0}')
-    in_index_name_offset: IntProperty(name='Index Name Offset', default=0)
+    in_index_name_offset: IntProperty(name='In Index Name Offset', default=0)
+    out_index_name_offset: IntProperty(name='Out Index Name Offset', default=0)
 
     def execute(self, context):
         global array_nodes
@@ -208,7 +209,7 @@ class ArmNodeAddInputOutputButton(bpy.types.Operator):
         inps = node.inputs
         outs = node.outputs
         inps.new(self.in_socket_type, self.in_name_format.format(str(len(inps) + self.in_index_name_offset)))
-        outs.new(self.out_socket_type, self.out_name_format.format(str(len(outs))))
+        outs.new(self.out_socket_type, self.out_name_format.format(str(len(outs) + self.out_index_name_offset)))
         return{'FINISHED'}
 
 class ArmNodeRemoveInputOutputButton(bpy.types.Operator):
